@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-While</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome Lucky!, you have some queries to review</h1>
+    <table id = "tableBody">
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Query</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr id = "tRows">
+
+        </tr>
+        
+    </table>
+    <script>
+        const queries = [
+            { id: 1, student: "Genesis", query: "Permission to absent from tech class", status: "APPROVED" },
+            { id: 2, student: "Nunya", query: "Permission to Absa Hackathon", status: "APPROVED" },
+            { id: 3, student: "Fleeur", query: "Permission to shoot film", status: "DECLINED" },
+            { id: 4, student: "Delight", query: "Need some delightful time to cool off", status: "DECLINED" },
+            { id: 5, student: "Sila", query: "Permission to participate in Absa Hackathon", status: "PENDING" },
+        ];
+        var tableBody = document.getElementById("tableBody");
+        var i = 0;
+        do {
+            var object = queries[i];
+            var row = document.createElement("tr")
+
+          
+            var idcell = document.createElement("td")
+            idcell.textContent = object.id;
+
+          
+            var studentcell = document.createElement("td");
+            studentcell.textContent = object.student;
+
+          
+            var querycell = document.createElement("td");
+            querycell.textContent = object.query;
+
+         
+            var statuscell = document.createElement("td");
+            statuscell.textContent = object.status;
+
+    
+            var actionCell = document.createElement("td");
+            actionCell.innerHTML = `<a href="#">APPROVED</a> &nbsp &nbsp &nbsp <a href="#">DECLINED</a>`
+
+            row.appendChild(idcell);
+            row.appendChild(studentcell);
+            row.appendChild(querycell)
+            row.appendChild(statuscell)
+            row.appendChild(actionCell)
+            
+            
+            tableBody.appendChild(row);
+            i++;
+        } while((i < queries.length))
+    </script>
+</body>
+
+</html>
